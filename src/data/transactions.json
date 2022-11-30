@@ -1,0 +1,49 @@
+[
+ {
+    "id":"kedhj87654erty",
+    "date": "07/10/22",
+    "type": "-",
+    "category": "other",
+    "comment": "zoo",
+    "sum":"600",
+    "balance":"7 400"
+ },
+ {
+    "id":"kg6543rdc09432",
+    "date": "10/08/21",
+    "type": "+",
+    "category": "salary",
+    "comment": "",
+    "sum":"16000",
+    "balance":"18000"
+ },
+  {
+    "id":"bgu7654322k990",
+    "date": "04/11/22",
+    "type": "-",
+    "category": "car",
+    "comment": "oil",
+    "sum":"800",
+    "balance":"8 200"
+ },
+     {
+    "id":"bgu43dffjykk990",
+    "date": "30/11/22",
+    "type": "+",
+    "category": "premia",
+    "comment": "new year",
+    "sum":"2000",
+    "balance":"9000"
+ },
+  {
+    "id":"b456rh3dffjykk990",
+    "date": "22/07/20",
+    "type": "+",
+    "category": "gift",
+    "comment": "new year",
+    "sum":"2000",
+    "balance":"11 000"
+ }
+
+
+]
