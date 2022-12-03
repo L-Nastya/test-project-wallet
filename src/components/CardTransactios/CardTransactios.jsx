@@ -1,26 +1,46 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const TransactionHistory = ({ items }) => {
+
+const CardTransactios = ({ items }) => {
     // let sortedCars1 = items.sort((a, b) => new Date(...a.date.split('/')) - new Date(...b.date.split('/')));
     // console.log(sortedCars1)
 //     let sortedCars = items.sort((a, b) => Date.parse(new Date(a.date.split("/").reverse().join("-"))) - Date.parse(new Date(b.date.split("/").reverse().join("-"))));
 //    console.log(sortedCars)
-//     let sortedCars = items.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
-//    console.log(sortedCars)
-    let sortedCars1 = items.sort((a, b) =>
-  b.date.split('/').reverse().join().localeCompare(a.date.split('/').reverse().join()));
+  //   let sortedCars = items.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
+  //  console.log(sortedCars)
+  // const comentLength = ()=> {
+  //   const coment = items.map(item => item.comment);
+  //   console.log(coment);
+  //   for ( let com of coment) {
+  //     if (com.length > 15) {
+  //      return com + "..."
+  //     }
+  //     else {
+  //       return com
+  //     }
+      
+  //   }
+    
+  // }
+  // comentLength()
 
-console.log(sortedCars1);
+    let sortedCars1 = items.sort((a, b) =>
+  b.date.split('.').reverse().join().localeCompare(a.date.split('.').reverse().join()));
+  console.log(sortedCars1);
+ 
     return (
         <TransContainer>
             {items.map(({date, type, category, comment, sum, balance, id}) => (
-                        <TransList key={id}>
+              <TransList key={id}>
                             <ListItems><TextItems>Date</TextItems><Items>{date}</Items></ListItems>
                             <ListItems><TextItems>Type</TextItems><Items>{type}</Items></ListItems>
                             <ListItems><TextItems>Category</TextItems><Items>{category}</Items></ListItems>
-                    <ListItems><TextItems>Comment</TextItems><Items>{comment || "---"}</Items></ListItems>
-                            <ListItems><TextItems>Sum</TextItems><Items>{sum}</Items></ListItems>
+                    <ListItems><TextItems>Comment</TextItems><Items><ComentBlock>{comment || "---"}</ComentBlock></Items></ListItems>
+                            <ListItems><TextItems>Sum</TextItems>
+                            {type === "+" ? 
+                            <Sum style={{color: "#24CCA7"}}>{sum}</Sum> :
+                            <Sum style={{color:"#FF6596"} }>{sum}</Sum>}</ListItems>
                             <ListItems><TextItems>Balance</TextItems><Items>{balance}</Items></ListItems>
                             </TransList>
                 ))}
@@ -28,7 +48,7 @@ console.log(sortedCars1);
         </TransContainer>
     )
 }
-TransactionHistory.propTypes = {
+CardTransactios.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -41,7 +61,7 @@ TransactionHistory.propTypes = {
     }),
   ),
 };
-export default TransactionHistory;
+export default CardTransactios;
 
 const borderColor = type => {
   switch (type) {
@@ -53,23 +73,26 @@ const borderColor = type => {
       return '#fff';
   }
 };
-
-const TransContainer = styled.div`
-    width:280px;
-    /* height:282px; */
-   margin: 32px auto;
-    
-    background-color: #DCDCDF;
-`;
 const TransList = styled.ul`
+  box-sizing: border-box;
+    width:280px;
+    height:282px;
     list-style: none;
      padding: 0px;
      border-radius:5px ;
       margin: 0px 20px 8px 20px;
        background-color: white;
-       border-left: 5px solid #FF6596;
-       /* border-color: ${({ type }) => borderColor(type)}; ;  */
+       border-left: 5px solid ;
+       border-color: ${({ type }) => borderColor(type) }; 
 `;
+const TransContainer = styled.div`
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+   margin-top: 32px;
+    background-color: #DCDCDF;
+`;
+
 const TextItems = styled.span`
 font-family: 'Circe';
 font-style: normal;
@@ -87,13 +110,25 @@ font-size: 16px;
 line-height: 24px;
 text-align: right;
 color: #000000; 
+/* width: 2px; */
 `;
+
+const Sum = styled.span`
+font-family: 'Circe';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+text-align: right; 
+`;
+
 
 const ListItems = styled.li`
    display:flex;
     justify-content: space-between;
     align-items: center;
        padding: 12px 20px 8px 20px;
+       
     :not(:last-child) {
          border-bottom: 1px solid #DCDCDF;
     }
@@ -103,3 +138,8 @@ const ListItems = styled.li`
     }
 `;
 
+const ComentBlock = styled.span`
+ white-space: nowrap;
+    overflow: hidden;
+    text-overflow:  ellipsis;
+`
