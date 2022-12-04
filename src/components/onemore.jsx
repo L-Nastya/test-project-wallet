@@ -1,50 +1,53 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-
-const TableTransactions = ({ items , colums}) => {
+const OneMore = ({ items , colums}) => {
     let sortedCars1 = items.sort((a, b) =>
   b.date.split('.').reverse().join().localeCompare(a.date.split('.').reverse().join()));
   console.log(sortedCars1);
- 
-  return (
-    <GeneralCon>
-        <TableHead>
+    return (
+      <GeneralContainer>
+    <HeadTable>
              <TransactionHead >
-          <Trantr>
-            {
+          <tr>
+            
+    {
                 colums.map(colum => (
-                            <Transactionth>
+                            <Transactionth width={colum.width}>
                     {colum.Header}
                             </Transactionth>
                            
                         ))
-                }</Trantr>
-      </TransactionHead >
-      </TableHead>
-      <BodyCon><TableMore>
-        <ScrollBody>
+                }        
+                </tr>
+          </TransactionHead >
+           </HeadTable>
+          <Scroll>
+              <BodyTable>
+               <tbody>
                  {
                 items.map(item => (
                         <Transactiontr key={item.id}>
-                            <Transactiontd>{item.date}</Transactiontd>
-                            <Transactiontd>{item.type}</Transactiontd>
-                           <Transactiontd>{item.category}</Transactiontd>
-                            <Transactiontd><SpanCom>{item.comment || "---"}</SpanCom></Transactiontd>
-                           <Transactiontd>{item.type === "+" ? 
+                            <Transactiontd width={100}>{item.date}</Transactiontd>
+                            <Transactiontd width={70}>{item.type}</Transactiontd>
+                           <Transactiontd width={75}>{item.category}</Transactiontd>
+                            <Transactiontd width={120}><SpanCom>{item.comment || "---"}</SpanCom></Transactiontd>
+                           <Transactiontd width={85}>{item.type === "+" ? 
                             <SpanSum style={{color: "#24CCA7"}}>{item.sum}</SpanSum> :
                             <SpanSum style={{color:"#FF6596"} }>{item.sum}</SpanSum>}</Transactiontd>
-                           <Transactiontd>{item.balance}</Transactiontd>
+                           <Transactiontd width={100}>{item.balance}</Transactiontd>
                             </Transactiontr>
                 ))
                 }
-                </ScrollBody>
-        </TableMore></BodyCon></GeneralCon>
-            
+                   </tbody>
+                  </BodyTable>
+              </Scroll>
+       
+            </GeneralContainer>
       
         )}
     
-TableTransactions.propTypes = {
+OneMore.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -57,110 +60,103 @@ TableTransactions.propTypes = {
     }),
   ),
 };
-export default TableTransactions;
+export default OneMore;
 
-
-const GeneralCon = styled.div`
+const GeneralContainer = styled.div`
   width:704px; 
   height:312px; 
   margin-top: 20px ;
   margin-left:32px;
   margin-right: 32px;
 background-color: transparent;
- 
+/* border-radius: 30px; */
+ font-family: 'Circe';
   @media (min-width: 1200px) {
     width: 715px;
     margin: 46px 16px  0px 69px;
   }
 `
-const TableHead = styled.table`
-display:grid;
-`;
-const TransactionHead = styled.thead`
-display: table-caption;
-box-sizing:border-box;
-    height: 58px;
+const HeadTable = styled.table`
+ height: 58px;
+  border-collapse: collapse;
+  width: 715px;
+  table-layout: fixed;
+  border-radius: 30px;
+  background-color: #ffff; 
+  `
+
+  const TransactionHead = styled.thead`
     background-color: #ffff; 
     padding: 16px 20px 15px 20px;
-   border-radius: 30px;
 `;
-const Trantr = styled.tr`
-   display:flex;
-   justify-content:space-between;
-`;
+
 const Transactionth = styled.th`
-font-family: 'Circe';
+border-radius: 30px;
 font-style: normal;
 font-weight: 700;
 font-size: 18px;
 line-height: 27px;
 color: #000000;
-border: 1px solid black;
-`;
+/* border: 1px solid black; */
+text-align: start;
 
-
-const BodyCon = styled.div`
-  height:254px; 
-  /* width: 656px; */
-  overflow-y: scroll;
-`
-const TableMore = styled.table`
-/* width: 656px; */
-display:grid;
-border-collapse: collapse;
-table-layout: auto;
-
-`;
-const ScrollBody = styled.tbody`
-  display: table-caption;
-  box-sizing:border-box;
-`;
+:nth-last-child(-n + 2){
+ text-align: end;
+}
+:nth-child(-n + 2) {
+  text-align:center;
+}`;
+const BodyTable = styled.table`
+  border-collapse: collapse;
+width:715px;
+table-layout: fixed;
+  `
 
 const Transactiontr = styled.tr`
-position: relative;
-   display:flex;
-   justify-content:space-between;
-   align-items:center;
 width:656px;
-font-family: 'Circe';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #000000; 
-padding-top:8px;
-padding-bottom:8px;
+
 :first-child{
   margin-top:16px;
   padding-top:0px;
 }
 :not(:last-child){
- border-bottom:  1px solid #DCDCDF;
+ border-bottom:  1px solid black;
 }`;
-   
+
 const Transactiontd = styled.td`
-border:  1px solid black;
-width:14%;
+height:20px;
 text-align:start;
-   white-space: normal;
-    overflow: hidden;
-    text-overflow:  ellipsis;
+/* border:  1px solid black; */
+padding-top:8px;
+padding-bottom:8px;
+ white-space: normal;
+    /* overflow: hidden;
+    text-overflow:  ellipsis; */
+:nth-child(3){
+   white-space: normal; 
+}
 :nth-last-child(-n + 2){
  text-align: end;
 }
 :nth-child(-n + 2) {
   text-align:center;
 }
-:hover {
-  z-index: 1;
-  overflow: visible;
-}
-`;
+`
+
 const SpanSum = styled.span`
     font-weight: 700;
 `;
 
 const SpanCom = styled.span`
-  width:100px;
-  white-space:nowrap;
+  /* table-layout: fixed; */
+ 
+`;
+const Scroll = styled.div`
+   overflow-y: auto;
+   height: 254px;
 `;

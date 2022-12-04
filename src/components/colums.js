@@ -1,25 +1,33 @@
-export const COLUMNS = [
+export const columns = [
   {
     Header: "Date",
-    sticky: "centre",
+    accessor: "date",
+    sort: true, 
+    width: 100,
   },
   {
     Header: "Type",
-    sticky: "centre",
+    accessor:"type",
+     width: 70,
   },
   {
     Header: "Category",
-    sticky: "centre",
+    accessor:"category",
+    width: 75,
   },
   {
     Header: "Comment",
     accessor: "comment",
+    width: 120,
   },
   {
     Header: "Sum",
-    sticky: "right",
+    accessor:"sum",
+    width: 85,
   },
   {
     Header: "Balance",
+    accessor: "balance",
+     width: 100,
   },
 ];

@@ -127,7 +127,7 @@ const ListItems = styled.li`
    display:flex;
     justify-content: space-between;
     align-items: center;
-       padding: 12px 20px 8px 20px;
+    padding: 12px 20px 8px 20px;
        
     :not(:last-child) {
          border-bottom: 1px solid #DCDCDF;

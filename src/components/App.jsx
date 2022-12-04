@@ -3,8 +3,10 @@ import Media from 'react-media';
 import CardTransactios from "./CardTransactios/CardTransactios";
 import TableTransactions from "./TableTransactions/TableTransactions";
 import transactions from 'data/transactions.json';
-import {COLUMNS} from './colums'
+import {columns} from './colums'
 import styled from "styled-components";
+import Table from "./trylibrary";
+import OneMore from "./onemore";
 
 
 
@@ -19,12 +21,10 @@ export const App = () => {
         {matches => (
             <Fragment>
               {matches.small && <CardTransactios items={transactions} />}
-              {matches.medium && <TableTransactions items={transactions} colums={COLUMNS} />}
-              {matches.large && <TableTransactions items={transactions} colums={COLUMNS} />}
+              {matches.medium && <TableTransactions items={transactions} colums={columns} />}
+              {matches.large && <OneMore items={transactions} colums={columns} />}
             </Fragment>
           )}
-      {/* <CardTransactios items={transactions} /> */}
-        {/* <TableTransactions items={transactions} /> */}
         </Media>
     </DivCon>
   );
