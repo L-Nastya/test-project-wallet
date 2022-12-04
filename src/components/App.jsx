@@ -5,7 +5,7 @@ import TableTransactions from "./TableTransactions/TableTransactions";
 import transactions from 'data/transactions.json';
 import {columns} from './colums'
 import styled from "styled-components";
-import Table from "./trylibrary";
+// import Table from "./trylibrary";
 import OneMore from "./onemore";
 
 
