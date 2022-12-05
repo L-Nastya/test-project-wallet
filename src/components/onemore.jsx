@@ -63,6 +63,7 @@ OneMore.propTypes = {
 export default OneMore;
 
 const GeneralContainer = styled.div`
+
   width:704px; 
   height:312px; 
   margin-top: 20px ;
@@ -99,7 +100,6 @@ line-height: 27px;
 color: #000000;
 /* border: 1px solid black; */
 text-align: start;
-
 :nth-last-child(-n + 2){
  text-align: end;
 }
@@ -108,7 +108,7 @@ text-align: start;
 }`;
 const BodyTable = styled.table`
   border-collapse: collapse;
-width:715px;
+width:656px;
 table-layout: fixed;
   `
 
@@ -157,6 +157,6 @@ const SpanCom = styled.span`
  
 `;
 const Scroll = styled.div`
-   overflow-y: auto;
+   overflow-y: scroll;
    height: 254px;
 `;

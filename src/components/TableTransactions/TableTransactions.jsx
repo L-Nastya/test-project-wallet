@@ -9,7 +9,7 @@ const TableTransactions = ({ items , colums}) => {
  
   return (
     <GeneralCon>
-        <TableHead>
+        <table>
              <TransactionHead >
           <Trantr>
             {
@@ -21,16 +21,16 @@ const TableTransactions = ({ items , colums}) => {
                         ))
                 }</Trantr>
       </TransactionHead >
-      </TableHead>
+      </table>
       <BodyCon><TableMore>
-        <ScrollBody>
+        <tbody>
                  {
                 items.map(item => (
                         <Transactiontr key={item.id}>
                             <Transactiontd>{item.date}</Transactiontd>
                             <Transactiontd>{item.type}</Transactiontd>
                            <Transactiontd>{item.category}</Transactiontd>
-                            <Transactiontd><SpanCom>{item.comment || "---"}</SpanCom></Transactiontd>
+                            <Transactiontd>{item.comment || "---"}</Transactiontd>
                            <Transactiontd>{item.type === "+" ? 
                             <SpanSum style={{color: "#24CCA7"}}>{item.sum}</SpanSum> :
                             <SpanSum style={{color:"#FF6596"} }>{item.sum}</SpanSum>}</Transactiontd>
@@ -38,7 +38,7 @@ const TableTransactions = ({ items , colums}) => {
                             </Transactiontr>
                 ))
                 }
-                </ScrollBody>
+                </tbody>
         </TableMore></BodyCon></GeneralCon>
             
       
@@ -61,6 +61,9 @@ export default TableTransactions;
 
 
 const GeneralCon = styled.div`
+display: flex;
+justify-content: center;
+flex-direction: column;
   width:704px; 
   height:312px; 
   margin-top: 20px ;
@@ -73,9 +76,6 @@ background-color: transparent;
     margin: 46px 16px  0px 69px;
   }
 `
-const TableHead = styled.table`
-display:grid;
-`;
 const TransactionHead = styled.thead`
 display: table-caption;
 box-sizing:border-box;
@@ -90,34 +90,43 @@ const Trantr = styled.tr`
 `;
 const Transactionth = styled.th`
 font-family: 'Circe';
+text-align: start;
 font-style: normal;
 font-weight: 700;
 font-size: 18px;
 line-height: 27px;
 color: #000000;
-border: 1px solid black;
+width:14.5%;
+:first-child{
+  width: 12%;
+}
+    :nth-child(2){
+  width: 16.2%;
+    text-align:center;
+}
+   :nth-child(4){
+  width: 17%;
+}
+   :nth-child(5){
+  width: 14.8%;
+}
+  :nth-child(6){
+  width: 14.6%;
+}
+:nth-last-child(-n + 2){
+ text-align: end;
+}
 `;
-
-
 const BodyCon = styled.div`
   height:254px; 
-  /* width: 656px; */
   overflow-y: scroll;
 `
 const TableMore = styled.table`
-/* width: 656px; */
-display:grid;
+display:flex;
 border-collapse: collapse;
-table-layout: auto;
-
+justify-content: center;
 `;
-const ScrollBody = styled.tbody`
-  display: table-caption;
-  box-sizing:border-box;
-`;
-
 const Transactiontr = styled.tr`
-position: relative;
    display:flex;
    justify-content:space-between;
    align-items:center;
@@ -126,10 +135,10 @@ font-family: 'Circe';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
-line-height: 24px;
+line-height: 18px;
 color: #000000; 
-padding-top:8px;
-padding-bottom:8px;
+padding-top:10px;
+padding-bottom:10px;
 :first-child{
   margin-top:16px;
   padding-top:0px;
@@ -139,28 +148,47 @@ padding-bottom:8px;
 }`;
    
 const Transactiontd = styled.td`
-border:  1px solid black;
-width:14%;
+width:14.5%;
+max-height:36px;
 text-align:start;
-   white-space: normal;
-    overflow: hidden;
-    text-overflow:  ellipsis;
+   /* white-space: normal; */
+    /* overflow: hidden;
+    text-overflow:  ellipsis; */
+display: -webkit-box;
+-webkit-line-clamp: 2; 
+-webkit-box-orient: vertical;
+overflow: hidden;
+ :first-child{
+  width: 12%;
+}
+    :nth-child(2){
+  width: 16.2%;
+    text-align:center;
+}
+   :nth-child(4){
+  width: 17%;
+}
+   :nth-child(5){
+  width: 14.8%;
+}
+  :nth-child(6){
+  width: 14.6%;
+}
 :nth-last-child(-n + 2){
  text-align: end;
-}
-:nth-child(-n + 2) {
-  text-align:center;
 }
 :hover {
   z-index: 1;
   overflow: visible;
+  position: absolute;
+  top:50px;
+  left:50px;
+right:-50px;
+bottom:-50px;
 }
 `;
 const SpanSum = styled.span`
     font-weight: 700;
 `;
 
-const SpanCom = styled.span`
-  width:100px;
-  white-space:nowrap;
-`;
+

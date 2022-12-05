@@ -3,28 +3,6 @@ import styled from 'styled-components';
 
 
 const CardTransactios = ({ items }) => {
-    // let sortedCars1 = items.sort((a, b) => new Date(...a.date.split('/')) - new Date(...b.date.split('/')));
-    // console.log(sortedCars1)
-//     let sortedCars = items.sort((a, b) => Date.parse(new Date(a.date.split("/").reverse().join("-"))) - Date.parse(new Date(b.date.split("/").reverse().join("-"))));
-//    console.log(sortedCars)
-  //   let sortedCars = items.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
-  //  console.log(sortedCars)
-  // const comentLength = ()=> {
-  //   const coment = items.map(item => item.comment);
-  //   console.log(coment);
-  //   for ( let com of coment) {
-  //     if (com.length > 15) {
-  //      return com + "..."
-  //     }
-  //     else {
-  //       return com
-  //     }
-      
-  //   }
-    
-  // }
-  // comentLength()
-
     let sortedCars1 = items.sort((a, b) =>
   b.date.split('.').reverse().join().localeCompare(a.date.split('.').reverse().join()));
   console.log(sortedCars1);
@@ -111,6 +89,7 @@ line-height: 24px;
 text-align: right;
 color: #000000; 
 /* width: 2px; */
+max-width:110px;
 `;
 
 const Sum = styled.span`
@@ -128,7 +107,9 @@ const ListItems = styled.li`
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px 8px 20px;
-       
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow:  ellipsis;
     :not(:last-child) {
          border-bottom: 1px solid #DCDCDF;
     }
@@ -139,7 +120,5 @@ const ListItems = styled.li`
 `;
 
 const ComentBlock = styled.span`
- white-space: nowrap;
-    overflow: hidden;
-    text-overflow:  ellipsis;
+   
 `

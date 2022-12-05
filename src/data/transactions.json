@@ -4,9 +4,9 @@
     "date": "07.10.22",
     "type": "-",
     "category": "other",
-    "comment": "Vegetables for the week",
-    "sum":"600",
-    "balance":"7 400"
+    "comment": "Vegetables for the week jhgfd hgfds jhgs",
+    "sum":"600.00",
+    "balance":"7 400.00"
  },
  {
     "id":"kg6543rdc09432",
@@ -14,8 +14,8 @@
     "type": "+",
     "category": "regular income",
     "comment": "",
-    "sum":"16000",
-    "balance":"18000"
+    "sum":"16000.00",
+    "balance":"18000.00"
  },
   {
     "id":"bgu7654322k990",
@@ -23,8 +23,8 @@
     "type": "-",
     "category": "car ",
     "comment": "gift for your wife ",
-    "sum":"800",
-    "balance":"8 200"
+    "sum":"800.00",
+    "balance":"8 200.00"
  },
      {
     "id":"bgu43dffjykk990",
@@ -32,8 +32,8 @@
     "type": "+",
     "category": "premia",
     "comment": "new year",
-    "sum":"2000",
-    "balance":"9000"
+    "sum":"2000.00",
+    "balance":"9000.00"
  },
   {
     "id":"b456rh3dffjykk990",
@@ -41,8 +41,8 @@
     "type": "+",
     "category": "gift",
     "comment": "new year",
-    "sum":"2000",
-    "balance":"11 000"
+    "sum":"2000.00",
+    "balance":"11 000.00"
  },
   {
     "id":"b4sfcgrght4htn",
@@ -50,8 +50,8 @@
     "type": "+",
     "category": "bonus",
     "comment": "new year",
-    "sum":"1500",
-    "balance":"12 500"
+    "sum":"1500.00",
+    "balance":"12 500.00"
  }
 
 ]

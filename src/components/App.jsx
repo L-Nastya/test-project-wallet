@@ -1,4 +1,4 @@
-import { React, Fragment } from "react";
+import { Fragment, React} from "react";
 import Media from 'react-media';
 import CardTransactios from "./CardTransactios/CardTransactios";
 import TableTransactions from "./TableTransactions/TableTransactions";
@@ -7,6 +7,8 @@ import {columns} from './colums'
 import styled from "styled-components";
 // import Table from "./trylibrary";
 import OneMore from "./onemore";
+// import Material from "./materialTable";
+// import {colums} from './columGrid'
 
 
 
@@ -32,7 +34,4 @@ export const App = () => {
 
 const DivCon = styled.div`
   background-color: #E7EAF2;
-  /* width:704px; 
-  height:312px; 
-  overflow-y: scroll; */
 `
